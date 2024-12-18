@@ -106,6 +106,7 @@ class AddBookFragment : Fragment() {
                 isUpdate = false
                 if (title.isNotBlank() && auther.isNotBlank() && genre.isNotBlank()){
                     mainViewModel.updateBook(newBook)
+                    activity?.onBackPressedDispatcher?.onBackPressed()
                 }else{
                     Toast.makeText(requireContext(), "Please fill all the details",Toast.LENGTH_SHORT).show()
                 }
@@ -123,12 +124,13 @@ class AddBookFragment : Fragment() {
                 )
                 if (title.isNotBlank() && auther.isNotBlank() && genre.isNotBlank() && publishedDate.isNotBlank()){
                     mainViewModel.insertBook(newBook)
+                    activity?.onBackPressedDispatcher?.onBackPressed()
                 }else{
                     Toast.makeText(requireContext(), "Please fill all the details",Toast.LENGTH_SHORT).show()
                 }
 
             }
-            activity?.onBackPressedDispatcher?.onBackPressed()
+
         }
     }
 
